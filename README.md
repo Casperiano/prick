@@ -1,4 +1,4 @@
-# Prick
+![Prick](images/logo.png)
 
 Prick/Patch firewall rules in Azure resources:
 - Storage Accounts
