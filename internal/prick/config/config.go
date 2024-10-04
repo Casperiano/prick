@@ -22,7 +22,9 @@ func LoadConfig() (*Config, error) {
 	viper.SetConfigName(".prick")
 	viper.AddConfigPath(".")
 	if err := viper.ReadInConfig(); err != nil {
-		return nil, err
+		if _, ok := err.(viper.ConfigFileNotFoundError); !ok {
+			return nil, err
+		}
 	}
 
 	var config Config
