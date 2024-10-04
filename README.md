@@ -1,43 +1,40 @@
 ![Prick](images/logo.png)
 
-Prick/Patch firewall rules in Azure resources:
+Prick is a CLI/TUI for patching or adding firewall rules to Azure resources, including:
+
 - Storage Accounts
-- Keyvaults
+- Key Vaults
 - Synapse Workspaces
 - SQL Servers
 
-By default use your current IP address, or you can provide a custom CIDR range.
+## Features
 
-Provide improved usability over `az` cli when adding mayny filewall rules.
-example use cases:
-- Applying local terraform without VPN
-- Temporarily giving access to external people without permanent config.
-- Allow easy patching of all firewall rules across an organisation in CI/CD.
+Prick automatically uses your current IP address.
+Simplifies the process compared to using the az CLI, especially when managing multiple firewall rules.
 
-Provide overview of all firewall rules.
+## Example Use Cases
 
-Open UI:
-```
-prick list 
-prick list --resource-type StorageAccount
-prick list --resource-group rg1
-prick list --resource-group rg1 --resource r1
-prick list --resource-group rg1 --resource-type StorageAccount
-```
+- Temporarily granting external access without modifying permanent configurations.
+- Seamlessly patching firewall rules across an organization in CI/CD pipelines.
 
-```
-prick poke --resource-type StorageAccount
-prick poke --resource-group rg1
-prick poke --resource-group rg1 --resource r1
-prick poke --resource-group rg1 --resource-type StorageAccount
+## Installation
+
+TODO
+
+## Usage
+
+To open the terminal user interface (TUI), run:
+```bash
+prick list
 ```
 
-```
-prick patch --resource-type StorageAccount
-prick patch --resource-group rg1
-prick patch --resource-group rg1 --resource r1
-prick patch --resource-group rg1 --resource-type StorageAccount
+To see all other prick commands, run:
+
+```bash
+prick --help
 ```
 
-## Config
-coming soon
+## Planned Features
+
+- Config file for default firewall rules
+- Allow whitelisting of other IP addresses / CIDR ranges
